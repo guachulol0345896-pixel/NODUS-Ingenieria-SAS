@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# entorno
+.env
+.env.local
+.env*.local
+
+# sistema
+.DS_Store
+Thumbs.db
+
+# permitir la plantilla de variables de entorno
+!.env.example

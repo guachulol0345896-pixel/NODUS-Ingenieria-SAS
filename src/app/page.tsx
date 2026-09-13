@@ -1,103 +1,113 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2, GitBranch, ShieldCheck, Timer } from 'lucide-react'
 
-export default function Home() {
+const PILARES = [
+  {
+    icono: GitBranch,
+    titulo: 'Workflow gobernado',
+    texto:
+      'Catorce estados con reglas de negocio explícitas. Ningún caso avanza sin cumplir las validaciones definidas.',
+  },
+  {
+    icono: Timer,
+    titulo: 'SLA y escalamiento',
+    texto:
+      'Cada estado tiene un tiempo máximo. La plataforma detecta incumplimientos y escala automáticamente.',
+  },
+  {
+    icono: ShieldCheck,
+    titulo: 'Trazabilidad total',
+    texto:
+      'Bitácora inmutable de actor, acción, fecha y cambio de estado sobre cada entidad del sistema.',
+  },
+]
+
+const FLUJO = [
+  'La Mipyme registra su necesidad en menos de tres minutos.',
+  'Advisory hace debida diligencia y clasifica el caso bajo taxonomías gobernadas.',
+  'El caso se publica en la bolsa interna y sólo los consultores elegibles lo ven.',
+  'Se asigna un único consultor responsable y se diseña la propuesta bajo plantillas.',
+  'Advisory aprueba el QA metodológico y la propuesta se envía formalmente.',
+  'El cliente decide, se completa el checklist contractual y arranca la ejecución.',
+]
+
+export default function Landing() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-white">
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <div className="flex items-center gap-2">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-marca-600 text-sm font-bold text-white">
+            N
+          </div>
+          <div>
+            <p className="text-sm font-semibold leading-tight">NODUS</p>
+            <p className="text-[11px] leading-tight text-slate-500">Ingeniería SAS</p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className="flex items-center gap-3">
+          <Link href="/login" className="btn-secundario">
+            Iniciar sesión
+          </Link>
+          <Link href="/intake" className="btn-primario">
+            Registrar caso
+          </Link>
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-6xl px-6 pb-16 pt-10 lg:pt-20">
+        <p className="mb-4 inline-flex rounded-full bg-marca-50 px-3 py-1 text-xs font-medium text-marca-700 ring-1 ring-inset ring-marca-200">
+          Ecosistema empresarial de orquestación
+        </p>
+        <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-slate-900 lg:text-5xl">
+          Del problema de una Mipyme a un consultor asignado, con trazabilidad completa.
+        </h1>
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
+          NODUS conecta Mipymes, consultores y equipos Advisory/PMO bajo un mismo proceso
+          gobernado: intake estructurado, debida diligencia, bolsa interna, propuestas
+          versionadas, SLA y auditoría.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="/intake" className="btn-primario">
+            Registrar una necesidad <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link href="/login" className="btn-secundario">
+            Entrar a la plataforma
+          </Link>
+        </div>
+
+        <div className="mt-16 grid gap-5 md:grid-cols-3">
+          {PILARES.map((p) => {
+            const Icono = p.icono
+            return (
+              <div key={p.titulo} className="tarjeta p-5">
+                <Icono className="h-5 w-5 text-marca-600" />
+                <h3 className="mt-3 text-sm font-semibold text-slate-900">{p.titulo}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{p.texto}</p>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="mt-16 rounded-2xl border border-slate-200 bg-slate-50 p-8">
+          <h2 className="text-lg font-semibold text-slate-900">El ciclo de vida de un caso</h2>
+          <ol className="mt-5 space-y-3">
+            {FLUJO.map((f, i) => (
+              <li key={i} className="flex gap-3 text-sm text-slate-700">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-marca-600" />
+                {f}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <footer className="border-t border-slate-200 py-8">
+        <p className="mx-auto max-w-6xl px-6 text-xs text-slate-500">
+          NODUS — Prueba técnica de desarrollo de software. Construido con Next.js, PostgreSQL y
+          Drizzle ORM.
+        </p>
       </footer>
     </div>
-  );
+  )
 }

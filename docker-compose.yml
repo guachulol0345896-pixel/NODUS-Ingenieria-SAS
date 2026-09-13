@@ -1,0 +1,24 @@
+# PostgreSQL local para desarrollo.
+#   docker compose up -d
+#   DATABASE_URL="postgresql://nodus:nodus@localhost:5432/nodus"
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: nodus-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nodus
+      POSTGRES_PASSWORD: nodus
+      POSTGRES_DB: nodus
+    ports:
+      - '5432:5432'
+    volumes:
+      - nodus_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U nodus -d nodus']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  nodus_data:
