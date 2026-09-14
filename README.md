@@ -1,3 +1,7 @@
+**Aplicacion desplegada:** https://nodus-ingenieria-sas.vercel.app
+
+**Acceso de prueba:** advisory@nodus.co / nodus123
+
 # NODUS — Ecosistema Empresarial de Orquestación de Casos
 
 Prueba técnica de desarrollo de software — **NODUS Ingeniería SAS**.
