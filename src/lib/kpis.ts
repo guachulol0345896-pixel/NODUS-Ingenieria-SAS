@@ -28,6 +28,7 @@ export async function calcularKpis() {
   }
   const conSla = activos.filter((c) => c.slaVenceAt).length
   const cumplimientoSla = conSla === 0 ? 100 : Math.round(((conSla - vencidos) / conSla) * 100)
+  const sinAsignar = activos.filter((c) => !c.consultorAsignadoId).length
 
   // --- Casos por estado ----------------------------------------------------
   const porEstado = ESTADOS.map((e) => ({
@@ -99,6 +100,7 @@ export async function calcularKpis() {
       tiempoClasificacion,
       tiempoPropuesta,
       alertasAbiertas: Number(alertasAbiertas),
+      sinAsignar,
     },
     comerciales: {
       propuestasEnviadas: enviadas,

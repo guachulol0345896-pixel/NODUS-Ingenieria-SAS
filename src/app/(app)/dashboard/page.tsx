@@ -54,7 +54,7 @@ export default async function DashboardPage() {
             <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
               Indicadores operativos
             </h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               <Kpi
                 titulo="Casos activos"
                 valor={kpis.operativos.casosActivos}
@@ -79,6 +79,12 @@ export default async function DashboardPage() {
                     : `${kpis.operativos.tiempoClasificacion} h`
                 }
                 detalle="Promedio desde el registro"
+              />
+              <Kpi
+                titulo="Casos sin asignar"
+                valor={kpis.operativos.sinAsignar}
+                tono={kpis.operativos.sinAsignar > 0 ? 'alerta' : 'exito'}
+                detalle="Activos sin consultor responsable"
               />
             </div>
           </section>
